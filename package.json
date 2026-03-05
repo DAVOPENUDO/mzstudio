@@ -1,0 +1,16 @@
+{
+  "name": "mz-studio",
+  "version": "1.0.0",
+  "description": "M&Z Studio - Estudio de belleza profesional a domicilio",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

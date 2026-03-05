@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="M&Z Studio — Estudio de belleza profesional a domicilio. Maquillaje, peinados, uñas acrílicas, faciales y más. Agenda tu cita por WhatsApp.">
+  <meta name="keywords"
+    content="belleza, maquillaje, peinados, uñas acrílicas, faciales, domicilio, Puebla, M&Z Studio">
+  <meta name="author" content="M&Z Studio">
+  <meta name="theme-color" content="#f48dba">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="M&Z Studio — Belleza profesional a domicilio">
+  <meta property="og:description"
+    content="Estudio de belleza profesional con servicio completamente a domicilio. ¡Agenda tu cita hoy!">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/images/M&Z Studio.png">
+
+  <title>M&Z Studio — Belleza profesional a domicilio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/M&Z Studio.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo" aria-label="M&Z Studio Home">
+        <img src="/images/M&Z Studio.png" alt="M&Z Studio Logo">
+        <span class="nav-logo-text">M&Z Studio</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#domicilio">A Domicilio</a>
+        <a href="#tips">Tips</a>
+        <a href="#agendar" class="nav-cta">Agendar Cita</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <img src="/images/hero-bg.png" alt="M&Z Studio Background" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Decorative Elements -->
+    <div class="hero-decoration circle-1"></div>
+    <div class="hero-decoration circle-2"></div>
+    <div class="hero-decoration circle-3"></div>
+
+    <div class="hero-content">
+      <img src="/images/M&Z Studio.png" alt="M&Z Studio" class="hero-logo">
+      <div class="hero-badge">🌸 Servicio a domicilio</div>
+      <h1>Estudio de belleza <span>profesional a domicilio</span></h1>
+      <p class="hero-subtitle">
+        Transformamos tu look con servicio premium directamente en la comodidad de tu hogar. ¡Tu belleza, nuestra
+        pasión!
+      </p>
+      <div class="hero-buttons">
+        <a href="#agendar" class="btn btn-primary" id="hero-cta-main">
+          💅 Agendar Mi Cita
+        </a>
+        <a href="#servicios" class="btn btn-secondary" id="hero-cta-services">
+          ✨ Ver Servicios
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="section services-section" id="servicios">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-badge">Nuestros Servicios</span>
+        <h2>Todo lo que necesitas para <em>brillar</em></h2>
+        <p>Ofrecemos una amplia gama de servicios de belleza profesional, todos a domicilio para tu comodidad.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- Services will be rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       APPOINTMENT SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="section appointment-section" id="agendar">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-badge">Reserva tu cita</span>
+        <h2>Agenda tu <em>cita</em></h2>
+        <p>Selecciona el servicio, fecha y hora. Te confirmaremos por WhatsApp al instante.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="appointment-card animate-on-scroll">
+        <form id="appointmentForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre completo <span class="required">*</span></label>
+              <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej: María García" required>
+            </div>
+
+            <div class="form-group">
+              <label for="servicio">Servicio deseado <span class="required">*</span></label>
+              <select id="servicio" name="servicio" class="form-control" required>
+                <option value="" disabled selected hidden>Selecciona un servicio...</option>
+              </select>
+            </div>
+
+            <div class="form-grid-2col">
+              <div class="form-group">
+                <label for="fecha">Fecha <span class="required">*</span></label>
+                <input type="date" id="fecha" name="fecha" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="hora">Hora <span class="required">*</span></label>
+                <select id="hora" name="hora" class="form-control" required>
+                  <option value="">Selecciona horario...</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección completa <span class="required">*</span></label>
+              <input type="text" id="direccion" name="direccion" class="form-control"
+                placeholder="Calle, Número, Colonia, Ciudad" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono de contacto <span class="required">*</span></label>
+              <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="Ej: 222 259 2158"
+                required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              Enviar Cita por WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       GALLERY SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="section gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-badge">Nuestro Trabajo</span>
+        <h2>Galería de <em>resultados</em></h2>
+        <p>Descubre la calidad de nuestro trabajo. Cada cliente es una obra de arte.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gallery-grid animate-on-scroll">
+        <div class="gallery-item">
+          <img src="/images/gallery-1.png" alt="Maquillaje profesional" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Maquillaje Profesional</span>
+            <p>Look completo para evento especial</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-2.png" alt="Uñas acrílicas" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Uñas Acrílicas</span>
+            <p>Diseños únicos y elegantes</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-3.png" alt="Peinado de evento" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Peinados de Evento</span>
+            <p>Estilos para toda ocasión</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-4.png" alt="Extensiones de pestañas" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Extensiones de Pestañas</span>
+            <p>Mirada espectacular</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-5.png" alt="Tratamiento facial" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Tratamientos Faciales</span>
+            <p>Cuidado profesional de la piel</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-6.png" alt="Barbería profesional" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Barbería Profesional</span>
+            <p>Cortes y arreglo de barba</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-7.png" alt="Efectos de color" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Efectos de Color</span>
+            <p>Transformaciones de cabello increíbles</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="/images/gallery-8.png" alt="Look completo de novia" loading="lazy">
+          <div class="gallery-overlay">
+            <span>Look de Novia Completo</span>
+            <p>Maquillaje y peinado para tu gran día</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HOME SERVICE SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="section home-service-section" id="domicilio">
+    <div class="container">
+      <div class="home-service-wrapper">
+        <div class="home-service-visual animate-on-scroll">
+          <div class="home-service-img-wrapper">
+            <img src="/images/gallery-1.png" alt="Servicio a domicilio M&Z Studio" loading="lazy">
+            <div class="home-service-badge">100% a Domicilio</div>
+          </div>
+        </div>
+
+        <div class="home-service-content animate-on-scroll">
+          <span class="section-badge">Servicio a Domicilio</span>
+          <h2>Belleza profesional hasta <em>la puerta de tu hogar</em></h2>
+          <p>En M&Z Studio llevamos todo nuestro equipo profesional directamente a ti. Sin filas, sin esperas, solo
+            resultados increíbles en la comodidad de tu casa.</p>
+
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon">🏠</div>
+              <div>
+                <h4>Comodidad Total</h4>
+                <p>Sin necesidad de salir de casa. Nosotras llegamos a ti con todo lo necesario.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⭐</div>
+              <div>
+                <h4>Profesionalismo Garantizado</h4>
+                <p>Equipo profesional, productos premium y atención de primer nivel.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⏰</div>
+              <div>
+                <h4>Horario Flexible</h4>
+                <p>Lunes a Sábado de 10:00 a 19:00. Adaptamos nuestro horario a ti.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💝</div>
+              <div>
+                <h4>Atención Personalizada</h4>
+                <p>Cada servicio es una experiencia única y dedicada exclusivamente a ti.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       AI BEAUTY TIPS SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="section ai-tips-section" id="tips">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-badge">Tips de Belleza</span>
+        <h2>Consejos de <em>belleza</em> para ti</h2>
+        <p>Descubre tips profesionales para mantener tu belleza entre cada visita.</p>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card animate-on-scroll">
+          <div class="tip-card-header">
+            <div class="tip-icon">💆‍♀️</div>
+            <div>
+              <h3>Cuidado Facial</h3>
+              <span class="tip-tag">Skincare</span>
+            </div>
+          </div>
+          <p>Mantén tu piel radiante con estos consejos esenciales:</p>
+          <ul>
+            <li>Limpia tu rostro dos veces al día con un limpiador suave</li>
+            <li>Aplica protector solar SPF 50 cada mañana, incluso en interiores</li>
+            <li>Hidrata tu piel con una crema adecuada según tu tipo de piel</li>
+            <li>Exfolia suavemente 2 veces por semana para renovar las células</li>
+            <li>Evita tocarte el rostro para prevenir brotes e impurezas</li>
+          </ul>
+        </div>
+
+        <div class="tip-card animate-on-scroll">
+          <div class="tip-card-header">
+            <div class="tip-icon">💇‍♀️</div>
+            <div>
+              <h3>Cuidado Capilar</h3>
+              <span class="tip-tag">Haircare</span>
+            </div>
+          </div>
+          <p>Tu cabello merece atención especial. Sigue estos tips:</p>
+          <ul>
+            <li>Usa agua tibia para lavar tu cabello, nunca demasiado caliente</li>
+            <li>Aplica mascarilla nutritiva una vez a la semana</li>
+            <li>Protege tu cabello del calor con un spray termoprotector</li>
+            <li>Desenreda con un peine de dientes anchos comenzando por las puntas</li>
+            <li>Corta las puntas cada 3 meses para un cabello saludable</li>
+          </ul>
+        </div>
+
+        <div class="tip-card animate-on-scroll">
+          <div class="tip-card-header">
+            <div class="tip-icon">💅</div>
+            <div>
+              <h3>Cuidado de Manos</h3>
+              <span class="tip-tag">Nailcare</span>
+            </div>
+          </div>
+          <p>Mantén tus manos y uñas siempre impecables:</p>
+          <ul>
+            <li>Hidrata tus manos con crema nutritiva antes de dormir</li>
+            <li>Usa guantes al lavar platos para proteger tus uñas</li>
+            <li>Aplica aceite de cutícula diariamente para uñas fuertes</li>
+            <li>No uses tus uñas como herramientas para abrir o rascar</li>
+            <li>Lima tus uñas siempre en una sola dirección, nunca de ida y vuelta</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="/images/M&Z Studio.png" alt="M&Z Studio">
+            <span>M&Z Studio</span>
+          </div>
+          <p>M&Z Studio — Belleza profesional hasta la puerta de tu hogar. Transformamos tu look con amor, pasión y
+            profesionalismo.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/522222592158" target="_blank" rel="noopener" aria-label="WhatsApp"
+              id="footer-whatsapp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" id="footer-instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" id="footer-facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="TikTok" id="footer-tiktok">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#agendar">Agendar Cita</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Servicios</h4>
+          <ul>
+            <li><a href="#agendar">Maquillaje</a></li>
+            <li><a href="#agendar">Peinados</a></li>
+            <li><a href="#agendar">Uñas Acrílicas</a></li>
+            <li><a href="#agendar">Faciales</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul class="footer-contact">
+            <li>
+              <span>+52 222 259 2158</span>
+            </li>
+            <li>
+              <span>Lun - Sáb: 10:00 a 19:00</span>
+            </li>
+            <li>
+              <span>Servicio a domicilio</span>
+            </li>
+            <li>
+              <span>Contactanos por WhatsApp</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 <span>M&Z Studio</span>. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       MUSIC PLAYER BUTTON
+  ═══════════════════════════════════════════ -->
+  <div class="music-float" id="musicFloat">
+    <button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+      <svg class="music-icon-play" id="musicIconPlay" viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <svg class="music-icon-pause" id="musicIconPause" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"
+        style="display:none;">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+    </button>
+    <div class="music-visualizer" id="musicVisualizer">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+  <audio id="bgMusic" src="/images/audio.mp3" loop preload="auto"></audio>
+
+  <!-- ═══════════════════════════════════════════
+       WHATSAPP FLOATING BUTTON
+  ═══════════════════════════════════════════ -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <div class="whatsapp-bubble" id="whatsappBubble">
+      Haz clic aquí para agendar tu cita por WhatsApp 💬
+    </div>
+    <a href="https://wa.me/522222592158" target="_blank" rel="noopener" class="whatsapp-btn" id="whatsapp-btn-float"
+      aria-label="Chat por WhatsApp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       TOAST NOTIFICATION
+  ═══════════════════════════════════════════ -->
+  <div class="toast" id="toast">
+    <span class="toast-icon">✅</span>
+    <div class="toast-text">
+      <h4>¡Cita registrada!</h4>
+      <p>Redirigiendo a WhatsApp...</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════ -->
+  <script>
+    // ── Services Data ──
+    const services = [
+      { name: 'Peinados para todo tipo de eventos', icon: '💇‍♀️', desc: 'Estilos únicos para cada ocasión especial' },
+      { name: 'Maquillaje social, boda, XV años', icon: '💄', desc: 'Looks perfectos para tu gran día' },
+      { name: 'Diseño y planchado de cejas', icon: '✨', desc: 'Cejas perfectamente definidas' },
+      { name: 'Planchados permanentes', icon: '🌟', desc: 'Cabello liso y brillante por más tiempo' },
+      { name: 'Extensiones de pestañas', icon: '👁️', desc: 'Mirada espectacular y natural' },
+      { name: 'Baños de novia / Afrodita', icon: '🛁', desc: 'Ritual de belleza completo' },
+      { name: 'Manicure y pedicure', icon: '💅', desc: 'Manos y pies impecables' },
+      { name: 'Masajes corporales', icon: '🧖‍♀️', desc: 'Relajación y bienestar total' },
+      { name: 'Efectos de color', icon: '🎨', desc: 'Transforma tu look con color' },
+      { name: 'Corte de cabello', icon: '✂️', desc: 'Cortes modernos y a tu estilo' },
+      { name: 'Botox capilar', icon: '💎', desc: 'Tratamiento rejuvenecedor capilar' },
+      { name: 'Uñas acrílicas', icon: '💖', desc: 'Diseños espectaculares y duraderos' },
+      { name: 'Pinta caritas', icon: '🎭', desc: 'Diversión artística para los peques' },
+      { name: 'Keratinas', icon: '🌿', desc: 'Cabello nutrido y sin frizz' },
+      { name: 'Faciales', icon: '🧴', desc: 'Piel radiante y rejuvenecida' },
+      { name: 'Barbería', icon: '💈', desc: 'Cortes y arreglo de barba profesional' }
+    ];
+
+    // ── Render Services Grid ──
+    const servicesGrid = document.getElementById('servicesGrid');
+    services.forEach((service, index) => {
+      const card = document.createElement('div');
+      card.className = 'service-card animate-on-scroll';
+      card.style.animationDelay = `${index * 0.06}s`;
+      card.innerHTML = `
+        <div class="service-icon"><span>${service.icon}</span></div>
+        <h3>${service.name}</h3>
+        <p>${service.desc}</p>
+      `;
+      servicesGrid.appendChild(card);
+    });
+
+    // ── Populate Service Select ──
+    const servicioSelect = document.getElementById('servicio');
+    services.forEach(service => {
+      const option = document.createElement('option');
+      option.value = service.name;
+      option.textContent = service.name;
+      servicioSelect.appendChild(option);
+    });
+
+    // ── Populate Time Slots ──
+    const horaSelect = document.getElementById('hora');
+    for (let h = 10; h < 19; h++) {
+      const time = `${h.toString().padStart(2, '0')}:00`;
+      const option = document.createElement('option');
+      option.value = time;
+      option.textContent = time;
+      horaSelect.appendChild(option);
+    }
+
+    // ── Set Minimum Date (today) ──
+    const fechaInput = document.getElementById('fecha');
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    fechaInput.min = `${yyyy}-${mm}-${dd}`;
+
+    // Disable Sundays
+    fechaInput.addEventListener('input', function () {
+      const selectedDate = new Date(this.value + 'T00:00:00');
+      if (selectedDate.getDay() === 0) {
+        showToastMessage('⚠️', 'Día no disponible', 'No trabajamos los domingos. Elige otro día.');
+        this.value = '';
+      }
+    });
+
+    // ── Navbar Scroll Effect ──
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ── Mobile Menu ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // ── Scroll Animations ──
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // ── Form Submission ──
+    const form = document.getElementById('appointmentForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Get form values
+      const nombre = document.getElementById('nombre').value.trim();
+      const servicio = document.getElementById('servicio').value;
+      const fecha = document.getElementById('fecha').value;
+      const hora = document.getElementById('hora').value;
+      const direccion = document.getElementById('direccion').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+
+      // Validate
+      if (!nombre || !servicio || !fecha || !hora || !direccion || !telefono) {
+        showToastMessage('⚠️', 'Campos incompletos', 'Por favor completa todos los campos.');
+        return;
+      }
+
+      // Validate no Sunday
+      const selectedDate = new Date(fecha + 'T00:00:00');
+      if (selectedDate.getDay() === 0) {
+        showToastMessage('⚠️', 'Día no disponible', 'No trabajamos los domingos.');
+        return;
+      }
+
+      // Format date for display
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const fechaFormateada = selectedDate.toLocaleDateString('es-MX', dateOptions);
+
+      // Loading state
+      submitBtn.classList.add('btn-loading');
+
+      // Build WhatsApp message
+      const mensaje =
+        `*Nueva cita solicitada en M&Z Studio*\n\n` +
+        `*Nombre:* ${nombre}\n` +
+        `*Servicio:* ${servicio}\n` +
+        `*Fecha:* ${fechaFormateada}\n` +
+        `*Hora:* ${hora}\n` +
+        `*Dirección:* ${direccion}\n` +
+        `*Teléfono:* ${telefono}`;
+
+      const encodedMessage = encodeURIComponent(mensaje);
+      const whatsappURL = `https://wa.me/522222592158?text=${encodedMessage}`;
+
+      // Show success toast
+      setTimeout(() => {
+        submitBtn.classList.remove('btn-loading');
+        showToastMessage('✅', '¡Cita registrada!', 'Redirigiendo a WhatsApp...');
+
+        // Open WhatsApp
+        setTimeout(() => {
+          window.open(whatsappURL, '_blank');
+        }, 1200);
+
+        // Reset form
+        form.reset();
+      }, 800);
+    });
+
+    // ── Toast Notification ──
+    function showToastMessage(icon, title, message) {
+      const toast = document.getElementById('toast');
+      toast.querySelector('.toast-icon').textContent = icon;
+      toast.querySelector('.toast-text h4').textContent = title;
+      toast.querySelector('.toast-text p').textContent = message;
+      toast.classList.add('show');
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 4000);
+    }
+
+    // ── WhatsApp Bubble Auto-hide ──
+    const whatsappBubble = document.getElementById('whatsappBubble');
+    setTimeout(() => {
+      whatsappBubble.style.display = 'none';
+    }, 12000);
+
+    whatsappBubble.addEventListener('click', () => {
+      window.open('https://wa.me/522222592158', '_blank');
+    });
+
+    // Show bubble again on hover
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    whatsappFloat.addEventListener('mouseenter', () => {
+      whatsappBubble.style.display = 'block';
+    });
+
+    whatsappFloat.addEventListener('mouseleave', () => {
+      setTimeout(() => {
+        whatsappBubble.style.display = 'none';
+      }, 3000);
+    });
+
+    // ── Smooth Scroll for anchor links ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navHeight = navbar.offsetHeight;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // ── Parallax effect on hero ──
+    window.addEventListener('scroll', () => {
+      const hero = document.querySelector('.hero-bg img');
+      const scrolled = window.pageYOffset;
+      if (hero && scrolled < window.innerHeight) {
+        hero.style.transform = `translateY(${scrolled * 0.3}px) scale(1.1)`;
+      }
+    });
+
+    // ── Music Player ──
+    const bgMusic = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    const musicIconPlay = document.getElementById('musicIconPlay');
+    const musicIconPause = document.getElementById('musicIconPause');
+    const musicVisualizer = document.getElementById('musicVisualizer');
+    let musicStarted = false;
+
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play().then(() => {
+          musicIconPlay.style.display = 'none';
+          musicIconPause.style.display = 'block';
+          musicVisualizer.classList.add('playing');
+          musicBtn.classList.add('playing');
+        }).catch(() => { });
+      } else {
+        bgMusic.pause();
+        musicIconPlay.style.display = 'block';
+        musicIconPause.style.display = 'none';
+        musicVisualizer.classList.remove('playing');
+        musicBtn.classList.remove('playing');
+      }
+    }
+
+    musicBtn.addEventListener('click', toggleMusic);
+
+    // Auto-play on first interaction
+    function autoPlayOnInteraction() {
+      if (!musicStarted) {
+        musicStarted = true;
+        bgMusic.volume = 0.4;
+        bgMusic.play().then(() => {
+          musicIconPlay.style.display = 'none';
+          musicIconPause.style.display = 'block';
+          musicVisualizer.classList.add('playing');
+          musicBtn.classList.add('playing');
+        }).catch(() => {
+          musicStarted = false;
+        });
+      }
+    }
+
+    ['click', 'touchstart', 'scroll', 'keydown'].forEach(event => {
+      document.addEventListener(event, autoPlayOnInteraction, { once: true });
+    });
+
+    console.log('🌸 M&Z Studio — Sitio web cargado correctamente');
+  </script>
+
+</body>
+
+</html>
